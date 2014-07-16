@@ -19,7 +19,7 @@ public class FiltroRSS {
 	
 	private String Autor = "";
 	private final String  rAutor = ".*<span class=\"riRssContributor\"><a.*>(.*)</a>.*<span.*>.*</span></span>.*";
-	private final String arAutor = ".*<span class=\"riRssContributor\">(.*).*<span.*>.*</span></span>.*";
+	private final String arAutor = ".*<span class=\"riRssContributor\">(.*)<span.*>.*</span></span>.*";
 
 	private String Estrella = "";
 	private final String rEstrella = ".*<img src=\".*stars-(\\d)-(\\d).*\\.gif\".*/>.*";
@@ -44,7 +44,7 @@ public class FiltroRSS {
 	
 	public String getEstrellas(){
 		if(Fuente.matches(rEstrella))Estrella = Fuente.replaceAll(rEstrella,"$1.$2");
-		else Estrella = "";
+		else Estrella = "0.0";
 		return Estrella;
 	}
 		

@@ -29,14 +29,14 @@
                             <li><a href="index.jsp"><span class="glyphicon glyphicon-home"></span> Inicio</a></li>
                             <li><a href="productosDisponibles.jsp"><span class="glyphicon glyphicon-list-alt"></span> Consulta Libro</a></li>
                             <li><a href="books.jsp"><span class="glyphicon glyphicon-book"></span> Libros</a></li>
-                            <li class="dropdown">
+<!--                            <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span> Mi cuenta <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                     
                                     <li class="divider"></li>
                                    <li><a href="./DestroyUser?user=">Salir</a></li>
                                 </ul>
-                            </li>
+                            </li>-->
                         </ul>
                     </div><!-- /.navbar-collapse -->
                 </div><!-- /.container-fluid -->
