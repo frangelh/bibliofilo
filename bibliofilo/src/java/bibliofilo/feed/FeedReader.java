@@ -59,15 +59,16 @@ public class FeedReader {
             for (FeedMessage message : feed.getMessages()) {
                 fr.setFuente(message.description);
 
-                if (fr.getAutor().isEmpty()) {
-                    System.out.println(conta++ + "  Titulo: " + fr.getTitulo());
-                    System.out.println("\t Precio: " + fr.getPrecio());
+               // if (fr.getPrecio().contains("free")) {
+                   // System.out.println(conta++ + "  Titulo: " + fr.getTitulo());
+                 //   System.out.println("\t Precio: " + fr.getPrecio());
                     // System.out.print(UrlActual);
-                    System.out.println("\t Author: " + fr.getAutor());
-                    System.out.println("\t Estrellas: " + fr.getEstrellas());
+                    System.out.println("\t Fecha: "+fr.getDate());
+                   // System.out.println("\t Author: " + fr.getAutor());
+                 //   System.out.println("\t Estrellas: " + fr.getEstrellas());
 
                     //System.out.println(message.title);
-                }
+             //   }
             }
         }
     }

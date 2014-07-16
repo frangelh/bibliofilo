@@ -25,6 +25,9 @@ public class FiltroRSS {
 	private String Estrella = "";
 	private final String rEstrella = ".*<img src=\".*stars-(\\d)-(\\d).*\\.gif\".*/>.*";
 	
+        private String rDate = "";
+	private final String aDate = ".*<span class=\"riRssReleaseDate\">Release Date:(.*) <br /></span>.*";
+        
 	private String Fuente;
 	
 	public void setFuente(String Fuente){
@@ -47,6 +50,12 @@ public class FiltroRSS {
 		if(Fuente.matches(rEstrella))Estrella = Fuente.replaceAll(rEstrella,"$1.$2");
 		else Estrella = "0.0";
 		return Estrella;
+	}
+        
+        	public String getDate(){
+		if(Fuente.matches(aDate))rDate = Fuente.replaceAll(aDate,"$1");
+		else rDate = "Unreleased";
+		return rDate;
 	}
 		
 	public String getAutor(){
