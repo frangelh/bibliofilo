@@ -30,6 +30,24 @@ public class FeedReader {
         url.add("http://www.amazon.com/gp/rss/new-releases/books/20");
     }
 
+    public static String imprimir() {
+        llenarurl();
+        int conta = 1;
+        String msg = "";
+        for (String UrlActual : url) {
+            FeedParser parser = new FeedParser(UrlActual);
+            Feed feed = parser.readFeed();
+            FiltroRSS fr = new FiltroRSS();
+
+            for (FeedMessage message : feed.getMessages()) {
+                fr.setFuente(message.description);
+                msg += fr.toString();
+            }
+
+        }
+        return msg;
+    }
+    
     public static void main(String[] args) {
         llenarurl();
         int conta = 1;
@@ -41,14 +59,15 @@ public class FeedReader {
             for (FeedMessage message : feed.getMessages()) {
                 fr.setFuente(message.description);
 
-               
+                if (fr.getAutor().isEmpty()) {
                     System.out.println(conta++ + "  Titulo: " + fr.getTitulo());
                     System.out.println("\t Precio: " + fr.getPrecio());
                     // System.out.print(UrlActual);
                     System.out.println("\t Author: " + fr.getAutor());
                     System.out.println("\t Estrellas: " + fr.getEstrellas());
-                
-                //System.out.println(message.title);
+
+                    //System.out.println(message.title);
+                }
             }
         }
     }
