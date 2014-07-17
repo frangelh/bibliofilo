@@ -27,7 +27,7 @@ public class FiltroRSS {
 
     private String rDate = "";
     private final String aDate = ".*<span class=\"riRssReleaseDate\">Release Date:(.*) <br /></span>.*";
-    private final String bDate = ".*<span class=\"riRssReleaseDate\"><em class=\"notPublishedYet\">Release Date:(.*)</em><br /></span>.*";
+    private final String bDate = ".*<span class=\"riRsseleaseDate\\\"><em class=\\\"notPublishedYet\\\">Release Date:(.*)</em><br /></span>.*";
     private String Fuente;
 
     public void setFuente(String Fuente) {
