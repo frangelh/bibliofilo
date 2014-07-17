@@ -73,15 +73,11 @@ public class FiltroRSS {
     }
 
     public String getAutor() {
-        if (Fuente.matches(rAutor)) {
-            Autor = Fuente.replaceAll(rAutor, "$1");
-        } // else if(Fuente.matches(arAutor))Autor = Fuente.replaceAll(arAutor,"$1");
-        else if (Fuente.matches(brAutor)) {
-            Autor = Fuente.replaceAll(brAutor, "$1");
-        } else {
-            Autor = "";
-        }
-        return Autor;
+        if (Fuente.matches(rAutor)) Autor = Fuente.replaceAll(rAutor, "$1");
+        else if(Fuente.matches(arAutor))Autor = Fuente.replaceAll(arAutor,"$1");
+        else if (Fuente.matches(brAutor))  Autor = Fuente.replaceAll(brAutor, "$1");
+        else Autor = "";
+        return Autor.replaceAll("<.*?>|</*?>|~|Release Date: \\w+ \\d+, \\d+|\\(\\d+\\).*|\\(.*\\)","");
     }
 
     @Override

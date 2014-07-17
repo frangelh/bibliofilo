@@ -34,12 +34,19 @@ public class FeedReader {
         int conta = 1;
         String msg = "";
         ArrayList<String> aRetornar = new ArrayList<>();
+        Prolog test = new Prolog();
         for (String UrlActual : url) {
             FeedParser parser = new FeedParser(UrlActual);
             Feed feed = parser.readFeed();
             FiltroRSS fr = new FiltroRSS();          
             for (FeedMessage message : feed.getMessages()) {
                 fr.setFuente(message.getDescription());
+               // test.setInfo(fr);
+               // test.EnviarARchivo(UrlActual, message.getGuid());
+                //if (fr.getAutor().matches(".*<span.*>.*")) {
+                    System.out.println("#"+ conta++ +" "+fr.getAutor());
+               // }
+                
                 /*
                 prolog(fe.getTitulo(),message.getGuid());
                 prolog(fe.getAutor(),message.getGuid());
