@@ -37,10 +37,10 @@ public class FeedReader {
         for (String UrlActual : url) {
             FeedParser parser = new FeedParser(UrlActual);
             Feed feed = parser.readFeed();
-            FiltroRSS fr = new FiltroRSS();
-
+            FiltroRSS fr = new FiltroRSS();          
             for (FeedMessage message : feed.getMessages()) {
-                fr.setFuente(message.description);
+                fr.setFuente(message.getDescription());
+                // aprolog(fr..,message.getGuig())
                 msg += fr.toString();
             }
 
@@ -59,16 +59,16 @@ public class FeedReader {
             for (FeedMessage message : feed.getMessages()) {
                 fr.setFuente(message.description);
 
-               // if (fr.getPrecio().contains("free")) {
-                   // System.out.println(conta++ + "  Titulo: " + fr.getTitulo());
+        
+                    System.out.println(conta++ + "  Titulo: " + fr.getTitulo());
                  //   System.out.println("\t Precio: " + fr.getPrecio());
-                    // System.out.print(UrlActual);
+                     System.out.print(UrlActual);
                     System.out.println("\t Fecha: "+fr.getDate());
                    // System.out.println("\t Author: " + fr.getAutor());
                  //   System.out.println("\t Estrellas: " + fr.getEstrellas());
 
                     //System.out.println(message.title);
-             //   }
+                
             }
         }
     }
