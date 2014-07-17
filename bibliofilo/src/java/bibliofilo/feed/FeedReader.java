@@ -29,21 +29,35 @@ public class FeedReader {
         url.add("http://www.amazon.com/gp/rss/new-releases/books/10");
         url.add("http://www.amazon.com/gp/rss/new-releases/books/20");
     }
-
-    public static String imprimir() {
+    public static ArrayList<String> Actualizar(){
         llenarurl();
         int conta = 1;
         String msg = "";
+        ArrayList<String> aRetornar = new ArrayList<>();
         for (String UrlActual : url) {
             FeedParser parser = new FeedParser(UrlActual);
             Feed feed = parser.readFeed();
             FiltroRSS fr = new FiltroRSS();          
             for (FeedMessage message : feed.getMessages()) {
                 fr.setFuente(message.getDescription());
-                // aprolog(fr..,message.getGuig())
-                msg += fr.toString();
+                /*
+                prolog(fe.getTitulo(),message.getGuid());
+                prolog(fe.getAutor(),message.getGuid());
+                prolog(fe.getEstrella(),message.getGuid());
+                prolog(fe.getCategoria(),message.getGuid());
+                prolog(fe.getFecha(),message.getGuid());
+                
+                */
+               aRetornar.add(fr.toString());
             }
 
+        }
+        return aRetornar;
+    }
+    public static String imprimir() {
+        String msg ="";
+        for (String MsgActual : Actualizar()) {
+            msg += MsgActual ;
         }
         return msg;
     }

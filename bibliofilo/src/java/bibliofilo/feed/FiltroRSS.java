@@ -19,7 +19,7 @@ public class FiltroRSS {
 
     private String Autor = "";
     private final String rAutor = ".*<span class=\"riRssContributor\"><a.*>(.*)</a>.*<span.*>.*</span></span>.*";
-    //private final String arAutor = ".*<span class=\"riRssContributor\">(.*)<span.*>.*</span></span>.*";
+    private final String arAutor = ".*<span class=\"riRssContributor\">(.*)<span.*>.*</span></span>.*";
     private final String brAutor = ".*<span class=\"riRssContributor\">(.*)</span>.*";
 
     private String Estrella = "";
