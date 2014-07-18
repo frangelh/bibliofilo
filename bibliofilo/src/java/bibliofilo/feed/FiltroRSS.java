@@ -49,7 +49,7 @@ public class FiltroRSS {
         } else {
             Titulo = "";
         }
-        return Titulo;
+        return Titulo.replace("'","\\'");
     }
 
     public String getEstrellas() {
@@ -77,7 +77,8 @@ public class FiltroRSS {
         else if(Fuente.matches(arAutor))Autor = Fuente.replaceAll(arAutor,"$1");
         else if (Fuente.matches(brAutor))  Autor = Fuente.replaceAll(brAutor, "$1");
         else Autor = "";
-        return Autor.replaceAll("<.*?>|</*?>|~|Release Date: \\w+ \\d+, \\d+|\\(\\d+\\).*|\\(.*\\)","");
+        Autor =Autor.replaceAll("<.*?>|</*?>|~|Release Date: \\w+ \\d+, \\d+|\\(\\d+\\).*|\\(.*\\)","");        
+        return Autor;
     }
 
     @Override
@@ -86,7 +87,7 @@ public class FiltroRSS {
         tFuente = tFuente.replaceAll("<span class=\"riRssReleaseDate\">.*", "");
         tFuente += "<span class=\"price\"><font color=\"red\"><b>$";
         tFuente += getPrecio();
-        tFuente += "</b></font></span><br /><br/><br/><br/><br/><br/>";
+        tFuente += "</b></font></span><br /><br/><br/><br/><br/><br/><br/><br/>";
         return tFuente;
     }
 }

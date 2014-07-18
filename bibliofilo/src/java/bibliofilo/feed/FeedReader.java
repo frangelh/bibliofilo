@@ -19,7 +19,7 @@ public class FeedReader {
 
     public static void llenarurl() {
         url.add("http://www.amazon.com/gp/rss/new-releases/books/1");
-        url.add("http://www.amazon.com/gp/rss/new-releases/books/2");
+       /* url.add("http://www.amazon.com/gp/rss/new-releases/books/2");
         url.add("http://www.amazon.com/gp/rss/new-releases/books/3");
         url.add("http://www.amazon.com/gp/rss/new-releases/books/4");
         url.add("http://www.amazon.com/gp/rss/new-releases/books/5");
@@ -27,7 +27,7 @@ public class FeedReader {
         url.add("http://www.amazon.com/gp/rss/new-releases/books/7");
         url.add("http://www.amazon.com/gp/rss/new-releases/books/9");
         url.add("http://www.amazon.com/gp/rss/new-releases/books/10");
-        url.add("http://www.amazon.com/gp/rss/new-releases/books/20");
+        url.add("http://www.amazon.com/gp/rss/new-releases/books/20");*/
     }
     public static ArrayList<String> Actualizar(){
         llenarurl();
@@ -41,12 +41,9 @@ public class FeedReader {
             FiltroRSS fr = new FiltroRSS();          
             for (FeedMessage message : feed.getMessages()) {
                 fr.setFuente(message.getDescription());
-               // test.setInfo(fr);
-               // test.EnviarARchivo(UrlActual, message.getGuid());
-                //if (fr.getAutor().matches(".*<span.*>.*")) {
-                    System.out.println("#"+ conta++ +" "+fr.getAutor());
-               // }
-                
+               test.setInfo(fr);
+               test.CrearProlog(UrlActual, message.getGuid());
+
                 /*
                 prolog(fe.getTitulo(),message.getGuid());
                 prolog(fe.getAutor(),message.getGuid());
