@@ -50,7 +50,7 @@ public class Prolog {
         }
 		catch(Exception e){}
     }
-    public void CrearProlog(String url,String Guid){
+    public void CrearProlog(String url,String Guid,String Categoria){
         String librotitulo = "assertz(librotitulo(\'"+ Info.getTitulo()+ "\',\'" + Guid +"\')),";
         String autorlibro="";
         for (String CadaAutor: Info.getAutor().split(",")) {
@@ -62,7 +62,9 @@ public class Prolog {
         String libroestrellas = "assertz(libroestrellas(\'"+ Info.getEstrellas()+ "\',\'" + Guid +"\'))," ;
         String preciolibro = "assertz(preciolibro("+ Info.getPrecio()+ ",\'" + Guid +"\'))," ;
         String fechapublicacion = "assertz(fechalibro("+ Info.getDate()+ ",\'" + Guid +"\'))," ;
-        String toProlog = librotitulo+autorlibro+libroestrellas+fechapublicacion+"tell('hechos.pl'),listing,told.";
+        String CategoriaLibro = "assertz(categoriaLibro(\'"+ Categoria+ "\',\'" + Guid +"\'))," ;
+       
+        String toProlog = librotitulo+autorlibro+libroestrellas+fechapublicacion+CategoriaLibro+"tell('hechos.pl'),listing,told.";
         Runtime r = Runtime.getRuntime();
         Process p;
         try{
