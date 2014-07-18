@@ -69,6 +69,27 @@ public class FiltroRSS {
         } else {
             rDate = "Unreleased";
         }
+		if(rDate.equals("Unreleased")){
+			rDate = "-1,-1,-1";
+		}
+		else{
+			int NumeroMes=0;
+			String [] tmp = rDate.trim().split(" ");
+			if(tmp[0].toLowerCase().equals("january")){ NumeroMes = 1;}
+			if(tmp[0].toLowerCase().equals("february")){ NumeroMes = 2;}
+			if(tmp[0].toLowerCase().equals("march")){ NumeroMes = 3;}
+			if(tmp[0].toLowerCase().equals("apri")){ NumeroMes = 4;}
+			if(tmp[0].toLowerCase().equals("may")){ NumeroMes = 5;}
+			if(tmp[0].toLowerCase().equals("june")){ NumeroMes = 6;}
+			if(tmp[0].toLowerCase().equals("july")){ NumeroMes = 7;}
+			if(tmp[0].toLowerCase().equals("augusts")){ NumeroMes = 8;}
+			if(tmp[0].toLowerCase().equals("septembe")){ NumeroMes = 9;}
+			if(tmp[0].toLowerCase().equals("october")){ NumeroMes = 10;}
+			if(tmp[0].toLowerCase().equals("november")){ NumeroMes = 11;}
+			if(tmp[0].toLowerCase().equals("december")){ NumeroMes = 12;}
+			rDate = NumeroMes +","+ tmp[1] + tmp[2];
+		}
+        
         return rDate;
     }
 
@@ -77,7 +98,7 @@ public class FiltroRSS {
         else if(Fuente.matches(arAutor))Autor = Fuente.replaceAll(arAutor,"$1");
         else if (Fuente.matches(brAutor))  Autor = Fuente.replaceAll(brAutor, "$1");
         else Autor = "";
-        Autor =Autor.replaceAll("<.*?>|</*?>|~|Release Date: \\w+ \\d+, \\d+|\\(\\d+\\).*|\\(.*\\)","");        
+        Autor =Autor.replaceAll("<.*?>|</*?>|~|Release Date: \\w+ \\d+, \\d+|\\(\\d+\\).*|\\(.*\\)|Buy new.*|by ","");        
         return Autor;
     }
 
