@@ -32,7 +32,7 @@ public class book {
         this.codigo = codigo;
         this.imagen = imagen;
     }
-
+    public book(){}
     public String getImagen() {
         return imagen;
     }

@@ -5,6 +5,8 @@
  */
 
 package bibliofilo.feed;
+
+import bibliofilo.classes.book;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.RandomAccessFile;
@@ -17,12 +19,14 @@ public class Prolog {
     FiltroRSS Info;
     RandomAccessFile test;
     String PrologStuff="";
+    
     public void setInfo(FiltroRSS Informacion){
         Info = Informacion;
     }
-    public ArrayList<String> ConsultarProlog(String Consulta) {
+    /*ESta es la funcion generica donde consutla es el string de la consulta recuerde sustuir las varaibles de la fucion en prolog con lo datos que se leen e java*/
+    public ArrayList<book> ConsultarProlog(String Consulta) {
 		Runtime r = Runtime.getRuntime();
-        ArrayList<String> aRetornar = new ArrayList<String>();
+        ArrayList<book> aRetornar = new ArrayList<>();
         Process p;
         try{
 			p = r.exec("ls reglas.pl");
@@ -46,7 +50,16 @@ public class Prolog {
 			String line;
 			
 			while ((line = c.readLine()) != null) {
-				aRetornar.add(line);
+				String [] tmp = line.split(" ");
+				book Nextbook = new book();
+				Nextbook.setTitulo(tmp[0]);
+				Nextbook.setAutor(tmp[1]);
+				Nextbook.setEstrellas(tmp[2]);
+				Nextbook.setPrecio(tmp[3]);
+				Nextbook.setPubDate(tmp[4]);
+				Nextbook.setCategoria(tmp[5]);
+				aRetornar.add(Nextbook);
+				
 			}
 			while ((line = d.readLine()) != null) {
 				//System.out.println("Error From Prolog"+line);
