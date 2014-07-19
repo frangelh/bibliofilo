@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package bibliofilo;
+package bibliofilo.classes;
 
 /**
  *
@@ -31,7 +31,7 @@ public class book {
         this.categoria = categoria;
         this.codigo = codigo;
         this.imagen = imagen;
-    } 
+    }
 
     public String getImagen() {
         return imagen;
