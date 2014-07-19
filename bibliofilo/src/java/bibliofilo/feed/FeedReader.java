@@ -16,8 +16,8 @@ public class FeedReader {
     private static ArrayList<String> url = new ArrayList<>();
 
     public static void llenarurl() {
-		url.add("http://www.amazon.com/gp/rss/new-releases/books/1");
-		url.add("http://www.amazon.com/gp/rss/new-releases/books/2");
+	url.add("http://www.amazon.com/gp/rss/new-releases/books/1");
+	url.add("http://www.amazon.com/gp/rss/new-releases/books/2");
         url.add("http://www.amazon.com/gp/rss/new-releases/books/3");
         url.add("http://www.amazon.com/gp/rss/new-releases/books/4");
         url.add("http://www.amazon.com/gp/rss/new-releases/books/5");
@@ -39,9 +39,40 @@ public class FeedReader {
             FiltroRSS fr = new FiltroRSS();          
             for (FeedMessage message : feed.getMessages()) {
                fr.setFuente(message.getDescription());
+               String categoria;
+               if(UrlActual.equals("http://www.amazon.com/gp/rss/new-releases/books/2")){
+					categoria = "Biographies & Memoirs";
+               }
+               else if (UrlActual.equals("http://www.amazon.com/gp/rss/new-releases/books/3")){
+					categoria = "Business & Money";
+               }
+               else if (UrlActual.equals("http://www.amazon.com/gp/rss/new-releases/books/4")){
+					categoria = "Children\'s Books";
+               }
+               else if (UrlActual.equals("http://www.amazon.com/gp/rss/new-releases/books/5")){
+					categoria = "Computers & Technology";
+               }
+               else if (UrlActual.equals("http://www.amazon.com/gp/rss/new-releases/books/6")){
+					categoria = "Cookbooks, Food & Wine";
+               }
+               else if (UrlActual.equals("http://www.amazon.com/gp/rss/new-releases/books/7")){
+					categoria = "Dance & Electronic";
+               }
+               else if (UrlActual.equals("http://www.amazon.com/gp/rss/new-releases/books/9")){
+					categoria = "History";
+               }
+               else if (UrlActual.equals("http://www.amazon.com/gp/rss/new-releases/books/10")){
+					categoria = "Health, Fitness & Dieting";
+               }
+               else if (UrlActual.equals("http://www.amazon.com/gp/rss/new-releases/books/20")){
+					categoria = "Parenting & Relationships";
+               }
+               else{
+					categoria = "niguna";
+               }
                test.setInfo(fr);
-               test.ConsultarProlog();	
-               //test.CrearProlog(UrlActual,message.getGuid());	
+               //test.ConsultarProlog();	
+               test.CrearProlog(UrlActual,message.getGuid(),categoria);	
                
                //System.out.println(fr.getDate());
                /*
