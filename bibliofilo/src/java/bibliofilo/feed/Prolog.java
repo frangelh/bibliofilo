@@ -23,7 +23,9 @@ public class Prolog {
     public void setInfo(FiltroRSS Informacion){
         Info = Informacion;
     }
-    /*ESta es la funcion generica donde consutla es el string de la consulta recuerde sustuir las varaibles de la fucion en prolog con lo datos que se leen e java*/
+    /*ESta es la funcion generica donde consutla es el string de la
+    consulta recuerde sustuir las varaibles de la fucion en prolog 
+    con lo datos que se leen e java*/
     public ArrayList<book> ConsultarProlog(String Consulta) {
 		Runtime r = Runtime.getRuntime();
         ArrayList<book> aRetornar = new ArrayList<>();

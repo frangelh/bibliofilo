@@ -24,12 +24,12 @@ public class book {
     public book(String titulo, String precio, String isbn, String autor, String estrellas, String pubDate, String categoria, String codigo, String imagen) {
         this.titulo = titulo;
         this.precio = precio;
-        this.isbn = isbn;
+        //.isbn = isbn;
         this.autor = autor;
         this.estrellas = estrellas;
         this.pubDate = pubDate;
         this.categoria = categoria;
-        this.codigo = codigo;
+       // this.codigo = codigo;
         this.imagen = imagen;
     }
     public book(){}
@@ -104,9 +104,22 @@ public class book {
     public void setCategoria(String categoria) {
         this.categoria = categoria;
     }
-
-    public static void main(String[] args) {
-        // TODO code application logic here
+/*
+    
+    private String titulo;
+    private String precio;
+    private String isbn;
+    private String autor;
+    private String estrellas;
+    private String pubDate;
+    private String categoria;
+    private String codigo;
+    private String imagen;
+    */
+    
+    public String GetBook() {
+        return ("Titulo: "+titulo+" Precio: "+precio+" Autor: "+autor+" Estrellas: "+estrellas+" Fecha publicacion:"+pubDate+" Categoria: "+categoria);
     }
+    
 
 }

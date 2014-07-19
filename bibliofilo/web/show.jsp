@@ -1,29 +1,24 @@
+<%@page import="bibliofilo.classes.book"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="bibliofilo.feed.Prolog"%>
 <%@ include file="template/header.jsp" %>
 
 <%
-Float sueldo =Float.valueOf((String)session.getAttribute("sueldo"));
-
+    Float sueldo = Float.valueOf((String) session.getAttribute("sueldo"));
+    Prolog pl = new Prolog(); //ConsultarProlog("sueldo10pociento("+Sueldo+",\'"+Categoria+"\')");
+    String categoria = request.getParameter("select");
+    ArrayList<book> consulta = pl.ConsultarProlog("sueldo10pociento(" + sueldo + ",\'" + categoria + "\')");
+    for (book actual : consulta) {
 %>
+
 <div class=" panel panel-primary">
     <div class="panel-heading">Consulte sus libros:</div>
-    <div class="panel-group panel-body">
-
-
-        <label for="sueldo" class="col-lg-2 ">Sueldo Extra:</label>
-        <div class="col-lg-2">
-            <span> Su sueldo extra es: <h1><%=sueldo %></h1></span>
-
-            <button class="btn btn-default"type="reset">Falta Implementar</button>
-        </div>
-
-
-
-
-
-
+    <div>
+        <%=actual.GetBook()%>  
 
     </div>
 
 </div>
 
+<% }%>
 <%@ include file="template/footer.jsp"%>
