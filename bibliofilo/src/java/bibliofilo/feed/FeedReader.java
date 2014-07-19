@@ -13,9 +13,9 @@ import java.util.ArrayList;
  * @author frangel
  */
 public class FeedReader {
-    private static ArrayList<String> url = new ArrayList<>();
-
-    public static void llenarurl() {
+    private ArrayList<String> url = new ArrayList<>();
+    Prolog test = new Prolog();
+    public void llenarurl() {
 	url.add("http://www.amazon.com/gp/rss/new-releases/books/1");
 	url.add("http://www.amazon.com/gp/rss/new-releases/books/2");
         url.add("http://www.amazon.com/gp/rss/new-releases/books/3");
@@ -27,12 +27,11 @@ public class FeedReader {
         url.add("http://www.amazon.com/gp/rss/new-releases/books/10");
         url.add("http://www.amazon.com/gp/rss/new-releases/books/20");
     }
-    public static ArrayList<String> Actualizar(){
+    public ArrayList<String> Actualizar(){
         llenarurl();
         int conta = 1;
         String msg = "";
         ArrayList<String> aRetornar = new ArrayList<>();
-        Prolog test = new Prolog();
         for (String UrlActual : url) {
             FeedParser parser = new FeedParser(UrlActual);
             Feed feed = parser.readFeed();
@@ -68,7 +67,7 @@ public class FeedReader {
 					categoria = "Parenting & Relationships";
                }
                else{
-					categoria = "niguna";
+					categoria = "Arts & Photography";
                }
                test.setInfo(fr);
                //test.ConsultarProlog();	
@@ -89,36 +88,16 @@ public class FeedReader {
         }
         return aRetornar;
     }
-    public static String imprimir() {
+    public String imprimir() {
         String msg ="";
         for (String MsgActual : Actualizar()) {
             msg += MsgActual ;
         }
         return msg;
     }
-    
-    public static void main(String[] args) {
-        llenarurl();
-        int conta = 1;
-        for (String UrlActual : url) {
-            FeedParser parser = new FeedParser(UrlActual);
-            Feed feed = parser.readFeed();
-            FiltroRSS fr = new FiltroRSS();
-
-            for (FeedMessage message : feed.getMessages()) {
-                fr.setFuente(message.description);
-
-        
-                    System.out.println(conta++ + "  Titulo: " + fr.getTitulo());
-                 //   System.out.println("\t Precio: " + fr.getPrecio());
-                     System.out.print(UrlActual);
-                    System.out.println("\t Fecha: "+fr.getDate());
-                   // System.out.println("\t Author: " + fr.getAutor());
-                 //   System.out.println("\t Estrellas: " + fr.getEstrellas());
-
-                    //System.out.println(message.title);
-                
-            }
-        }
+    public void Save(){
+        test.Save();
     }
+    
+    
 }

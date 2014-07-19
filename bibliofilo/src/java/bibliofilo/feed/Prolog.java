@@ -8,6 +8,7 @@ package bibliofilo.feed;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.RandomAccessFile;
+import java.util.ArrayList;
 /**
  *
  * @author mrmomo
@@ -15,11 +16,13 @@ import java.io.RandomAccessFile;
 public class Prolog {
     FiltroRSS Info;
     RandomAccessFile test;
+    String PrologStuff="";
     public void setInfo(FiltroRSS Informacion){
         Info = Informacion;
     }
-    public void ConsultarProlog() {
+    public ArrayList<String> ConsultarProlog(String Consulta) {
 		Runtime r = Runtime.getRuntime();
+        ArrayList<String> aRetornar = new ArrayList<String>();
         Process p;
         try{
 			p = r.exec("ls reglas.pl");
@@ -33,8 +36,36 @@ public class Prolog {
 				catch(Exception e){}
 				
 			}
-			String toProlog ="init,librotitulo(X,_),write(X),nl,fail";
+			String toProlog ="init,"+Consulta;
 			String [] run =new String[]{"swipl","-f","reglas.pl","-g",toProlog,"-t","halt"};
+			p = r.exec(run);
+			p.waitFor();
+			BufferedReader c = new BufferedReader(new InputStreamReader(p.getInputStream()));
+			BufferedReader d = new BufferedReader(new InputStreamReader(p.getErrorStream()));
+			
+			String line;
+			
+			while ((line = c.readLine()) != null) {
+				aRetornar.add(line);
+			}
+			while ((line = d.readLine()) != null) {
+				//System.out.println("Error From Prolog"+line);
+			}
+        }
+		catch(Exception e){}
+		return aRetornar;
+    }
+    public void  Save(){
+        Runtime r = Runtime.getRuntime();
+        Process p;
+        try{
+			p = r.exec("ls hechos.pl");
+			p.waitFor();
+			if(p.exitValue() > 0){
+				p = r.exec("touch hechos.pl");
+				p.waitFor();
+			}
+			String [] run =new String[]{"swipl","-f","hechos.pl","-g",PrologStuff+"tell('hechos.pl'),listing(librotitulo),listing(autorlibro),listing(libroestrellas),listing(preciolibro),listing(fechalibro),listing(categorialibro),told.","-t","halt"};
 			p = r.exec(run);
 			p.waitFor();
 			BufferedReader c = new BufferedReader(new InputStreamReader(p.getInputStream()));
@@ -45,10 +76,21 @@ public class Prolog {
 				System.out.println(line);
 			}
 			while ((line = d.readLine()) != null) {
-				//System.out.println("Error From Prolog"+line);
+				//if(line.contains("compile"))System.out.println(line);
+				if(!line.contains("compile"))System.out.println("Error "+line);
 			}
         }
 		catch(Exception e){}
+		//System.out.println(PrologStuff);
+		try{
+			RandomAccessFile a = new RandomAccessFile("log","rw");
+			a.write(PrologStuff.getBytes());
+			a.close();
+		}
+		catch(Exception e){}
+		PrologStuff=null;
+                PrologStuff="";
+                
     }
     public void CrearProlog(String url,String Guid,String Categoria){
         String librotitulo = "assertz(librotitulo(\'"+ Info.getTitulo()+ "\',\'" + Guid +"\')),";
@@ -59,37 +101,12 @@ public class Prolog {
             autorlibro += "assertz(autorlibro(\'"+ CadaAutor.trim().replace("'","\\'")+ "\',\'" + Guid +"\'))," ;
         }
         //System.out.println(autorlibro);
-        String libroestrellas = "assertz(libroestrellas(\'"+ Info.getEstrellas()+ "\',\'" + Guid +"\'))," ;
+        String libroestrellas = "assertz(libroestrellas("+ Info.getEstrellas()+ ",\'" + Guid +"\'))," ;
         String preciolibro = "assertz(preciolibro("+ Info.getPrecio()+ ",\'" + Guid +"\'))," ;
         String fechapublicacion = "assertz(fechalibro("+ Info.getDate()+ ",\'" + Guid +"\'))," ;
-        String CategoriaLibro = "assertz(categoriaLibro(\'"+ Categoria+ "\',\'" + Guid +"\'))," ;
-       
-        String toProlog = librotitulo+autorlibro+libroestrellas+fechapublicacion+CategoriaLibro+"tell('hechos.pl'),listing,told.";
-        Runtime r = Runtime.getRuntime();
-        Process p;
-        try{
-			p = r.exec("ls hechos.pl");
-			p.waitFor();
-			if(p.exitValue() > 0){
-				p = r.exec("touch hechos.pl");
-				p.waitFor();
-			}
-			String [] run =new String[]{"swipl","-f","hechos.pl","-g",toProlog,"-t","halt"};
-			p = r.exec(run);
-			p.waitFor();
-			BufferedReader c = new BufferedReader(new InputStreamReader(p.getInputStream()));
-			BufferedReader d = new BufferedReader(new InputStreamReader(p.getErrorStream()));
-			
-			String line;
-			while ((line = c.readLine()) != null) {
-				System.out.println(line);
-			}
-			while ((line = d.readLine()) != null) {
-				if(line.contains("compile"))System.out.println(line);
-				if(!line.contains("compile"))System.out.println("Error "+line);
-			}
-        }
-		catch(Exception e){}
+        String CategoriaLibro = "assertz(categorialibro(\'"+Categoria.replace("'","\\'")+"\',\'" + Guid +"\'))," ;
+        //librotitulo + autorlibro +   libroestrellas +  preciolibro + fechapublicacion +CategoriaLibro
+        PrologStuff +=  librotitulo + autorlibro  +   libroestrellas + preciolibro  +fechapublicacion + CategoriaLibro; 
     }
     
     public void EnviarARchivo(String url,String Guid){
