@@ -3,26 +3,47 @@
 <%@page import="bibliofilo.feed.Prolog"%>
 <%@ include file="template/header.jsp" %>
 
-<%
-    Float sueldo = Float.valueOf((String) session.getAttribute("sueldo"));
-    Prolog pl = new Prolog(); //ConsultarProlog("sueldo10pociento("+Sueldo+",\'"+Categoria+"\')");
-    String categoria = request.getParameter("select");
-    System.out.print(categoria);
-    ArrayList<book> consulta = pl.ConsultarProlog("sueldo10pociento(" + sueldo + ",\'" + categoria.replace("'","\\'") + "\')");
-    System.out.print(consulta.size());
-    for (book actual : consulta) {
-        System.out.print(actual.GetBook());
+<div class=" panel panel-primary">
+    <div class="panel-heading">Sus libros:</div>
+    <div class="panel-body" >
+        <div class="list-group list">
+            <%
+                Float sueldo = Float.valueOf((String) session.getAttribute("sueldo"));
+                Prolog pl = new Prolog(); //ConsultarProlog("sueldo10pociento("+Sueldo+",\'"+Categoria+"\')");
+                String categoria = request.getParameter("select");
+                String autor = request.getParameter("autor");
+                String opcion = request.getParameter("opcion");
+                String palabra = request.getParameter("palabra");
+                String query = "";
+                if (opcion.equals("1")) {
+                } else if (opcion.equals("2")) {
+                    query = "sueldo10pociento(" + sueldo + ",\'" + categoria.replace("'", "\\'") + "\')";
+                } else if (opcion.equals("3")) {
+
+                } else if (opcion.equals("4")) {
+                    //libroCategoriaAutor20(Presupuesto,Autor,Categoria,NoContiene) 
+                    System.out.print(autor+" "+opcion+" "+palabra);
+                    query = "libroCategoriaAutor20(" + sueldo + ",\'" + autor + "\'" + ",\'" + categoria.replace("'", "\\'") + "\'" + "\'" + palabra + "\'" + ")";
+                } else if (opcion.equals("5")) {
+                    //encontrarCategoria5Estellas(Categoria)
+                    query = "encontrarCategoria5Estellas(" + "\'" + categoria.replace("'", "\\'") + "\')";
+                }
+
+                ArrayList<book> consulta = pl.ConsultarProlog(query);
+                System.out.print(consulta.size());
+                for (book actual : consulta) {
+                    //System.out.print(actual.GetBook());
 %>
 
-<div class=" panel panel-primary">
-    <div class="panel-heading">Consulte sus libros:</div>
-    <div>
-        
-        <%=actual.GetBook()%>  
 
+            <div class="list-group-item">
+                <%=actual.GetBook()%>  
+
+            </div>
+            <% }%>
+        </div>
     </div>
-
 </div>
 
-<% }%>
+
 <%@ include file="template/footer.jsp"%>

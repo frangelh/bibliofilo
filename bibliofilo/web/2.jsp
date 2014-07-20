@@ -23,6 +23,7 @@
                 </div>
 
                 <div class="form-group">
+                    <input type="text" id="opcion" name="opcion" value="2" hidden="true" >
                     <label for="select" class="col-lg-2 control-label">Seleccione la categoria</label>
                     <div class="col-lg-5">
                         <select class="form-control" id="select" name="select">
