@@ -32,6 +32,10 @@
                                     <option>Libros Usados, Con 50% sueldo</option>
                                     <option>Categoria, 20% Sueldo, Autor</option>
                                     <option>Categoria, Mes y que sea 5 Estrellas</option>
+                                    <option>Categoria, rango de estrellas</option>
+                                    <option>Comming Soon</option>
+                                    <option>Total Autor</option>
+                                   
                                 </select>
                                 <br>                            
                             </div>

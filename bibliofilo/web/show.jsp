@@ -14,26 +14,44 @@
                 String autor = request.getParameter("autor");
                 String opcion = request.getParameter("opcion");
                 String palabra = request.getParameter("palabra");
+                String inferior = request.getParameter("minima");
+                String superior = request.getParameter("maximo");
+
                 String query = "";
                 if (opcion.equals("1")) {
                 } else if (opcion.equals("2")) {
                     query = "sueldo10pociento(" + sueldo + ",\'" + categoria.replace("'", "\\'") + "\')";
+                    System.out.print(query);
                 } else if (opcion.equals("3")) {
 
                 } else if (opcion.equals("4")) {
                     //libroCategoriaAutor20(Presupuesto,Autor,Categoria,NoContiene) 
-                    System.out.print(autor+" "+opcion+" "+palabra);
-                    query = "libroCategoriaAutor20(" + sueldo + ",\'" + autor + "\'" + ",\'" + categoria.replace("'", "\\'") + "\'" + "\'" + palabra + "\'" + ")";
+                    query = "libroCategoriaAutor20(" + sueldo + ",\'" + autor.replace("'", "\\'") + "\'" + ",\'" + categoria.replace("'", "\\'") + "\'" + "," + "\'" + palabra.replace("'", "\\'") + "\'" + ")";
+                    System.out.print(query);
                 } else if (opcion.equals("5")) {
                     //encontrarCategoria5Estellas(Categoria)
                     query = "encontrarCategoria5Estellas(" + "\'" + categoria.replace("'", "\\'") + "\')";
+                    System.out.print(query);
+                } else if (opcion.equals("6")) {
+                    //todacategoriarango(Categoria,Estrellainferior,Estrellasuperior):-
+                    query = "todacategoriarango(" + "\'" + categoria.replace("'", "\\'") + "\'" + "," + inferior + "," + superior + " )";
+                    System.out.print(query);
+                } else if (opcion.equals("7")) {
+                    //commingsoon:-
+                    query = "commingsoon()";
+                    System.out.print(query);
+
+                } else if (opcion.equals("8")) {
+                    //autortotal(Autor)
+                    query = "autortotal(" + "\'" + autor.replace("'", "\\'") + "')";
+                    System.out.print(query);
                 }
 
                 ArrayList<book> consulta = pl.ConsultarProlog(query);
                 System.out.print(consulta.size());
                 for (book actual : consulta) {
                     //System.out.print(actual.GetBook());
-%>
+            %>
 
 
             <div class="list-group-item">

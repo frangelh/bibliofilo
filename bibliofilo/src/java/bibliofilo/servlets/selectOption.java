@@ -1,4 +1,5 @@
 package bibliofilo.servlets;
+
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -14,24 +15,29 @@ public class selectOption extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        
 
-            String sueldo = request.getParameter("sueldo");
-            String select = request.getParameter("select");
-            HttpSession session = request.getSession();
-            session.setAttribute("sueldo", sueldo);
-            if (select.equals("Libros Ultimos 7 Dias")) {
-                response.sendRedirect("./1.jsp");
-            } else if (select.equals("10% sueldo, Categoria y Estrellas")) {
-                response.sendRedirect("./2.jsp");
-            } else if (select.equals("Libros Usados, Con 50% sueldo")) {
-                response.sendRedirect("./3.jsp");
-            } else if (select.equals("Categoria, 20% Sueldo, Autor")) {
-                response.sendRedirect("./4.jsp");
-            } else if (select.equals("Categoria, Mes y que sea 5 Estrellas")) {
-                response.sendRedirect("./5.jsp");
-            }
-        
+        String sueldo = request.getParameter("sueldo");
+        String select = request.getParameter("select");
+        HttpSession session = request.getSession();
+        session.setAttribute("sueldo", sueldo);
+        if (select.equals("Libros Ultimos 7 Dias")) {
+            response.sendRedirect("./1.jsp");
+        } else if (select.equals("10% sueldo, Categoria y Estrellas")) {
+            response.sendRedirect("./2.jsp");
+        } else if (select.equals("Libros Usados, Con 50% sueldo")) {
+            response.sendRedirect("./3.jsp");
+        } else if (select.equals("Categoria, 20% Sueldo, Autor")) {
+            response.sendRedirect("./4.jsp");
+        } else if (select.equals("Categoria, Mes y que sea 5 Estrellas")) {
+            response.sendRedirect("./5.jsp");
+        } else if (select.equals("Categoria, rango de estrellas")) {
+            response.sendRedirect("./Extra1.jsp");
+        } else if (select.equals("Comming Soon")) {
+            response.sendRedirect("./Extra2.jsp");
+        } else if (select.equals("Total Autor")) {
+            response.sendRedirect("./Extra3.jsp");
+        }
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
