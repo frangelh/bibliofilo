@@ -8,7 +8,8 @@
     Prolog pl = new Prolog(); //ConsultarProlog("sueldo10pociento("+Sueldo+",\'"+Categoria+"\')");
     String categoria = request.getParameter("select");
     System.out.print(categoria);
-    ArrayList<book> consulta = pl.ConsultarProlog("sueldo10pociento(" + sueldo + ",\'" + categoria + "\')");
+    ArrayList<book> consulta = pl.ConsultarProlog("sueldo10pociento(" + sueldo + ",\'" + categoria.replace("'","\\'") + "\')");
+    System.out.print(consulta.size());
     for (book actual : consulta) {
         System.out.print(actual.GetBook());
 %>

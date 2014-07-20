@@ -90,6 +90,7 @@ public class book {
     }
 
     public String getPubDate() {
+        if (pubDate.contains("-1")) return " Unreleased";
         return pubDate;
     }
 
@@ -118,7 +119,7 @@ public class book {
     */
     
     public String GetBook() {
-        return ("Titulo: "+titulo+" Precio: "+precio+" Autor: "+autor+" Estrellas: "+estrellas+" Fecha publicacion:"+pubDate+" Categoria: "+categoria);
+        return ("Titulo: "+titulo+"<br/> Precio: "+precio+"<br/> Autor: "+autor+"<br/> Estrellas: "+estrellas+"<br/> Fecha publicacion:"+getPubDate()+"<br/> Categoria: "+categoria).replace("'","");
     }
     
 

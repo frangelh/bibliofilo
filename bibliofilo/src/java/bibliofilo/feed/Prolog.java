@@ -37,6 +37,7 @@ public class Prolog {
 				try{
 					RandomAccessFile tmp = new RandomAccessFile("reglas.pl","rw");
 					tmp.write("init:-consult('hechos.pl').".getBytes());
+                                        
 					tmp.close();
 				}
 				catch(Exception e){}
@@ -52,7 +53,7 @@ public class Prolog {
 			String line;
 			
 			while ((line = c.readLine()) != null) {
-				String [] tmp = line.split(" ");
+				String [] tmp = line.split("@");
 				book Nextbook = new book();
 				Nextbook.setTitulo(tmp[0]);
 				Nextbook.setAutor(tmp[1]);
@@ -80,6 +81,13 @@ public class Prolog {
 				p = r.exec("touch hechos.pl");
 				p.waitFor();
 			}
+                        else{
+                            p = r.exec("rm hechos.pl");
+                            p.waitFor();
+                            p = r.exec("touch hechos.pl");
+                            p.waitFor();
+                        
+                        }
 			String [] run =new String[]{"swipl","-f","hechos.pl","-g",PrologStuff+"tell('hechos.pl'),listing(librotitulo),listing(autorlibro),listing(libroestrellas),listing(preciolibro),listing(fechalibro),listing(categorialibro),told.","-t","halt"};
 			p = r.exec(run);
 			p.waitFor();
