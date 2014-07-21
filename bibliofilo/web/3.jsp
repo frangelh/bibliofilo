@@ -21,11 +21,17 @@
 
 
                 </div>
-
+                <div class="form-group">
+                    <label for="sueldo" class="col-lg-2 control-label">Sueldo:</label>
+                    <div class="col-lg-2">
+                        <input type="number" class="form-control" id="extra" name="extra" placeholder="EX: 2000.00  " required>
+                        <button class="btn btn-default"type="reset">Limpiar</button>
+                    </div>
+                </div>
                 <div class="form-group">
                     <input type="text" id="opcion" name="opcion" value="3" hidden="true" >
 
-                    <button type="submit" class="btn btn-primary btn-lg col-lg-offset-1">Aceptar <span class="glyphicon glyphicon-floppy-saved"></span></button>
+                    <button type="submit" class="btn btn-primary btn-lg col-lg-offset-3">Aceptar <span class="glyphicon glyphicon-floppy-saved"></span></button>
 
                 </div>
 

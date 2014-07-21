@@ -6,7 +6,7 @@
 <%
     Float sueldo = Float.valueOf((String) session.getAttribute("sueldo"));
     Float extra = (sueldo * 10) / 100;
- 
+
 %>
 <div class=" panel panel-primary">
     <div class="panel-heading">Consulte sus libros:</div>
@@ -17,9 +17,9 @@
             <fieldset>
 
                 <div class="col-lg-2">
-                    <span>Sueldo Extra: <h1><%=sueldo%></h1></span>
-                    <span>Sueldo Extra 10%: <h1><%=extra%></h1></span>
-                    <button class="btn btn-default"type="reset">Falta Implementar</button>
+                    <span>Sueldo <h1><%=sueldo%></h1></span>
+                    <span>Sueldo  10%: <h1><%=extra%></h1></span>
+
                 </div>
 
                 <div class="form-group">
@@ -39,11 +39,17 @@
                             <option>Mystery, Thriller & Suspense</option>
                             <option>Literature & Fiction</option>
                         </select>
-                        <br>                            
+                        <br> 
+                        <label for="sueldo" class="col-lg-2 control-label">Sueldo extra:</label>
+                        <div class="col-lg-4">
+                            <input type="number" class="form-control" id="extra" name="extra" placeholder="EX: 2000.00  " required>
+                            <button class="btn btn-default"type="reset">Limpiar</button>
+                        </div>
                     </div>
                     <button type="submit" class="btn btn-primary btn-lg col-lg-offset-1">Aceptar <span class="glyphicon glyphicon-floppy-saved"></span></button>
 
                 </div>
+              
 
             </fieldset>
         </form>

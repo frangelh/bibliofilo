@@ -11,7 +11,7 @@
                 <legend>Formulario de consulta: </legend>
                 <a href="index.jsp"><span class="btn btn-success btn-lg col-lg-offset-10">Actualizar datos <span class="glyphicon glyphicon-refresh"></span></span></a>
                 <div class="form-group">
-                    <label for="sueldo" class="col-lg-2 control-label">Sueldo Extra:</label>
+                    <label for="sueldo" class="col-lg-2 control-label">Sueldo:</label>
                     <div class="col-lg-2">
                         <input type="number" class="form-control" id="sueldo" name="sueldo" placeholder="EX: 2000.00  " required>
                         <button class="btn btn-default"type="reset">Limpiar</button>

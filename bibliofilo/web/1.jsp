@@ -16,7 +16,13 @@
                     <span>Sueldo Extra: <h1><%=sueldo%></h1></span>
                 </div>
                 <div class="col-lg-4">
-
+                     <div class="form-group">
+                    <label for="sueldo" class="col-lg-2 control-label">Sueldo:</label>
+                    <div class="col-lg-4">
+                        <input type="number" class="form-control" id="extra" name="extra" placeholder="EX: 2000.00  " required>
+                        <button class="btn btn-default"type="reset">Limpiar</button>
+                    </div>
+                </div>
 
 
 

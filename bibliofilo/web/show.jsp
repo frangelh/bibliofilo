@@ -18,19 +18,22 @@
                 String superior = request.getParameter("maximo");
                 String preciomenor = request.getParameter("preciomenor");
                 String preciomayor = request.getParameter("preciomayor");
+                Float extra = Float.valueOf((String) request.getParameter("extra"));
+
                 String query = "";
                 if (opcion.equals("1")) {
                     //findbookfecha(Sueldo,Dias)
-                    query = "findbookfecha(" + sueldo + ",7)";
+                    query = "findbookfecha(" + extra + ",7)";
+                    System.out.print(query);
                 } else if (opcion.equals("2")) {
-                    query = "sueldo10pociento(" + sueldo + ",\'" + categoria.replace("'", "\\'") + "\')";
+                    query = "sueldo10pociento(" + (extra + (sueldo * 0.1)) + ",\'" + categoria.replace("'", "\\'") + "\')";
                     System.out.print(query);
                 } else if (opcion.equals("3")) {
                     //usado50porciento(Sueldo)
-                    query = "usado50porciento(" + sueldo + ")";
+                    query = "usado50porciento(" + extra + ")";
                 } else if (opcion.equals("4")) {
                     //libroCategoriaAutor20(Presupuesto,Autor,Categoria,NoContiene) 
-                    query = "libroCategoriaAutor20(" + sueldo + ",\'" + autor.replace("'", "\\'") + "\'" + ",\'" + categoria.replace("'", "\\'") + "\'" + "," + "\'" + palabra.replace("'", "\\'") + "\'" + ")";
+                    query = "libroCategoriaAutor20(" + (sueldo*0.2) + ",\'" + autor.replace("'", "\\'") + "\'" + ",\'" + categoria.replace("'", "\\'") + "\'" + "," + "\'" + palabra.replace("'", "\\'") + "\'" + ")";
                     System.out.print(query);
                 } else if (opcion.equals("5")) {
                     //encontrarCategoria5Estellas(Categoria)
@@ -55,7 +58,7 @@
                 System.out.print(consulta.size());
                 for (book actual : consulta) {
                     //System.out.print(actual.GetBook());
-            %>
+%>
 
 
             <div class="list-group-item">
