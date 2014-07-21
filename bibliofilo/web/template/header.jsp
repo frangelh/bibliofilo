@@ -29,7 +29,7 @@
                         <ul class="nav navbar-nav navbar-right">
                             <li><a href="index.jsp"><span class="glyphicon glyphicon-home"></span> Inicio</a></li>
                             <li><a href="consulta.jsp"><span class="glyphicon glyphicon-list-alt"></span> Consulta Libro</a></li>
-                            <li><a href="books.jsp"><span class="glyphicon glyphicon-book"></span> Libros</a></li>
+                            <li><a href="books.jsp"><span class="glyphicon glyphicon-book"></span> Libros nuevos</a></li>
                             <!--                            <li class="dropdown">
                                                             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span> Mi cuenta <b class="caret"></b></a>
                                                             <ul class="dropdown-menu">

@@ -24,7 +24,7 @@ public class selectOption extends HttpServlet {
             response.sendRedirect("./1.jsp");
         } else if (select.equals("10% sueldo, Categoria y Estrellas")) {
             response.sendRedirect("./2.jsp");
-        } else if (select.equals("Libros Usados, Con 50% sueldo")) {
+        } else if (select.equals("Libros Usados, 50% en otras y sueldo")) {
             response.sendRedirect("./3.jsp");
         } else if (select.equals("Categoria, 20% Sueldo, Autor")) {
             response.sendRedirect("./4.jsp");

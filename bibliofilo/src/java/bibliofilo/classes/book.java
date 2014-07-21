@@ -29,10 +29,13 @@ public class book {
         this.estrellas = estrellas;
         this.pubDate = pubDate;
         this.categoria = categoria;
-       // this.codigo = codigo;
+        // this.codigo = codigo;
         this.imagen = imagen;
     }
-    public book(){}
+
+    public book() {
+    }
+
     public String getImagen() {
         return imagen;
     }
@@ -90,7 +93,9 @@ public class book {
     }
 
     public String getPubDate() {
-        if (pubDate.contains("-1")) return " Unreleased";
+        if (pubDate.contains("-1")) {
+            return " Unreleased";
+        }
         return pubDate;
     }
 
@@ -105,22 +110,30 @@ public class book {
     public void setCategoria(String categoria) {
         this.categoria = categoria;
     }
-/*
+    /*
     
-    private String titulo;
-    private String precio;
-    private String isbn;
-    private String autor;
-    private String estrellas;
-    private String pubDate;
-    private String categoria;
-    private String codigo;
-    private String imagen;
-    */
-    
+     private String titulo;
+     private String precio;
+     private String isbn;
+     private String autor;
+     private String estrellas;
+     private String pubDate;
+     private String categoria;
+     private String codigo;
+     private String imagen;
+     */
+
     public String GetBook() {
-        return ("Titulo: "+titulo+"<br/> Precio: "+precio+"<br/> Autor: "+autor+"<br/> Estrellas: "+estrellas+"<br/> Fecha publicacion:"+getPubDate()+"<br/> Categoria: "+categoria).replace("'","");
+        if (getPubDate().contains("Unreleased")) {
+            setPubDate("<strike>" + getPubDate() + "</strike>");
+        }
+
+        return ("<div class=\"list-group\"><legend><b>Titulo del libro: </b> " + titulo + "<br/></legend></div>"
+                + "<div class=\"list-group-item \"><h2 class=\"text-primary\"><b>Precio: </b><span class=\"h1 text-primary\">" + precio + "</span></h2><br/> </div>"
+                + "<div class=\"list-group-item \"><b>Autor: </b><span class=\"text-warning h4\">" + autor + "</span><br/> </div>"
+                + "<div class=\"list-group-item \"><b>Estrellas: </b><div class=\"glyphicon glyphicon-star text-info \" style=\" font-size:20px;\">" + estrellas + "</div><br/> </div>"
+                + "<div class=\"list-group-item \"><b>Fecha publicacion: </b><span class=\" text-danger\">" + getPubDate() + "</span><br/> </div>"
+                + "<div class=\"list-group-item \"><b>Categoria: </b><span class=\"h4 text-success\">" + categoria).replace("'", "") + "</span></div>";
     }
-    
 
 }

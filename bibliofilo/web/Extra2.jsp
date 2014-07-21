@@ -17,7 +17,7 @@
             <fieldset>
 
                 <div class="col-lg-2">
-                    <span>Sueldo Extra: <h1><%=sueldo%></h1></span>
+                    <span>Sueldo: <h1><%=sueldo%></h1></span>
 
 
                 </div>

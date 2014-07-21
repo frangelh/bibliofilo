@@ -19,9 +19,12 @@
         <!--                <div class="photo">
                             <img src="http://lorempixel.com/350/260/technics/" class="img-responsive" alt="a" />
                         </div>-->
+        <a href="./UpdateData"><span class="btn btn-success btn-lg col-lg-offset-10">Actualizar datos <span class="glyphicon glyphicon-refresh"></span></span></a>
+
         <%FeedReader Pagina = new FeedReader();%>
         <%=Pagina.imprimir()%>
-        <%Pagina.Save();%>
+
+        <%//Pagina.Save();%>
 
     </div>
 
