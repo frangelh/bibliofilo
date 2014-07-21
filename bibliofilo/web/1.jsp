@@ -17,7 +17,7 @@
                 </div>
                 <div class="col-lg-4">
                      <div class="form-group">
-                    <label for="sueldo" class="col-lg-2 control-label">Sueldo:</label>
+                    <label for="sueldo" class="col-lg-2 control-label">Sueldo extra:</label>
                     <div class="col-lg-4">
                         <input type="number" class="form-control" id="extra" name="extra" placeholder="EX: 2000.00  " required>
                         <button class="btn btn-default"type="reset">Limpiar</button>
