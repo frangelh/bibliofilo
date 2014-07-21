@@ -6,7 +6,7 @@
 <%
     Float sueldo = Float.valueOf((String) session.getAttribute("sueldo"));
 
- 
+
 %>
 <div class=" panel panel-primary">
     <div class="panel-heading">Consulte sus libros:</div>
@@ -18,7 +18,7 @@
 
                 <div class="col-lg-2">
                     <span>Sueldo Extra: <h1><%=sueldo%></h1></span>
-                 
+
                     <button class="btn btn-default"type="reset">Falta Implementar</button>
                 </div>
 
@@ -36,6 +36,8 @@
                             <option>History</option>
                             <option>Health, Fitness & Dieting</option>
                             <option>Parenting & Relationships</option>
+                            <option>Mystery, Thriller & Suspense</option>
+                            <option>Literature & Fiction</option>
                         </select>
                         <br>                            
                     </div>

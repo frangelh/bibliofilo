@@ -3,7 +3,6 @@
     Created on : Jun 30, 2014, 10:23:29 AM
     Author     : frangel
 --%>
-
 <%@page import="bibliofilo.feed.FeedReader"%>
 <%@page import="bibliofilo.feed.FeedMessage"%>
 <%@page import="bibliofilo.feed.Feed"%>

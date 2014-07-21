@@ -35,6 +35,8 @@
                             <option>History</option>
                             <option>Health, Fitness & Dieting</option>
                             <option>Parenting & Relationships</option>
+                            <option>Mystery, Thriller & Suspense</option>
+                            <option>Literature & Fiction</option>
                         </select>
                         <br>                            
                     </div>
@@ -42,7 +44,7 @@
 
                 </div>
 
-                    <div class="col-lg-offset-2">
+                <div class="col-lg-offset-2">
                     <div class="form-group">
                         <label class="col-md-2 control-label">Cantidad minima</label>
                         <div class="col-lg-5">

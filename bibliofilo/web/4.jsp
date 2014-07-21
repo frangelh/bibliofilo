@@ -33,6 +33,8 @@
                                     <option>History</option>
                                     <option>Health, Fitness & Dieting</option>
                                     <option>Parenting & Relationships</option>
+                                    <option>Mystery, Thriller & Suspense</option>
+                                    <option>Literature & Fiction</option>
                                 </select>
                                 <br>                            
                             </div>
