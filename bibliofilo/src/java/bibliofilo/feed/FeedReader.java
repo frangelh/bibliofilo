@@ -70,8 +70,10 @@ public class FeedReader {
                     categoria = "Literature & Fiction";
                 }
                 test.setInfo(fr);
-                //test.ConsultarProlog();	
-                test.CrearProlog(UrlActual, message.getGuid(), categoria);
+                //test.ConsultarProlog();
+                String nguid = message.getGuid().replaceAll("new-releases_books_.*_","");
+                System.out.println(nguid);
+                test.CrearProlog(UrlActual,nguid , categoria);
 
                //System.out.println(fr.getDate());
                /*
