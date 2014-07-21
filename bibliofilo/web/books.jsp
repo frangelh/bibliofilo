@@ -13,23 +13,23 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ include file="template/header.jsp" %>
 <ul class="list-group">
-    
-       
-        
-            <div class="list-group-item">
-<!--                <div class="photo">
-                    <img src="http://lorempixel.com/350/260/technics/" class="img-responsive" alt="a" />
-                </div>-->
-                <%FeedReader Pagina = new FeedReader();%>
-                <%=Pagina.imprimir() %>
-                <%Pagina.Save();%>
 
-            </div>
-      
-    
-    
+
+
+    <div class="list-group-item">
+        <!--                <div class="photo">
+                            <img src="http://lorempixel.com/350/260/technics/" class="img-responsive" alt="a" />
+                        </div>-->
+        <%FeedReader Pagina = new FeedReader();%>
+        <%=Pagina.imprimir()%>
+        <%Pagina.Save();%>
+
+    </div>
+
+
+
 
     <ul
 
 
-<%@ include file="template/footer.jsp"%>
+        <%@ include file="template/footer.jsp"%>

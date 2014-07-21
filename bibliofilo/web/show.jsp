@@ -16,14 +16,18 @@
                 String palabra = request.getParameter("palabra");
                 String inferior = request.getParameter("minima");
                 String superior = request.getParameter("maximo");
-
+                String preciomenor = request.getParameter("preciomenor");
+                String preciomayor = request.getParameter("preciomayor");
                 String query = "";
                 if (opcion.equals("1")) {
+                    //findbookfecha(Sueldo,Dias)
+                    query = "findbookfecha(" + sueldo + ",7)";
                 } else if (opcion.equals("2")) {
                     query = "sueldo10pociento(" + sueldo + ",\'" + categoria.replace("'", "\\'") + "\')";
                     System.out.print(query);
                 } else if (opcion.equals("3")) {
-
+                    //usado50porciento(Sueldo)
+                    query = "usado50porciento(" + sueldo + ")";
                 } else if (opcion.equals("4")) {
                     //libroCategoriaAutor20(Presupuesto,Autor,Categoria,NoContiene) 
                     query = "libroCategoriaAutor20(" + sueldo + ",\'" + autor.replace("'", "\\'") + "\'" + ",\'" + categoria.replace("'", "\\'") + "\'" + "," + "\'" + palabra.replace("'", "\\'") + "\'" + ")";
@@ -38,12 +42,12 @@
                     System.out.print(query);
                 } else if (opcion.equals("7")) {
                     //commingsoon:-
-                    query = "commingsoon()";
+                    query = "commingsoon";
                     System.out.print(query);
 
                 } else if (opcion.equals("8")) {
                     //autortotal(Autor)
-                    query = "autortotal(" + "\'" + autor.replace("'", "\\'") + "')";
+                    query = "autortotal(" + "\'" + autor.replace("'", "\\'") + "'," + preciomenor + "," + preciomayor + ")";
                     System.out.print(query);
                 }
 

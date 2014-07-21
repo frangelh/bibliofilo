@@ -19,7 +19,7 @@
                         <span>Sueldo Extra 20%: <h1><%=extra%></h1></span>                     
                     </div>
                     <div class="col-lg-4">
-                       
+
 
                         <div class="form-group">
                             <label for="sueldo" class="col-lg-4 control-label">Nombre del Autor:</label>
@@ -28,9 +28,23 @@
 
                             </div>
                         </div>
-                  
+                        <div class="form-group">
+                            <label for="sueldo" class="col-lg-4 control-label">Precio Menor: </label>
+                            <div class="col-md-6">
+                                <input type="number" class="form-control" id="autor" name="preciomenor"    required>
+
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="sueldo" class="col-lg-4 control-label">Precio Mayor: </label>
+                            <div class="col-md-6">
+                                <input type="number" class="form-control" id="autor" name="preciomayor"   required>
+
+                            </div>
+                        </div>
                         <div class="col-md-8">
-                              <input type="text" id="opcion" name="opcion" value="8" hidden="true" >
+                            <input type="text" id="opcion" name="opcion" value="8" hidden="true" >
                             <button class="btn btn-default "type="reset">Limpiar</button>
                             <button type="submit" class="btn btn-primary btn-lg">Aceptar <span class="glyphicon glyphicon-floppy-saved"></span></button>
 
