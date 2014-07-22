@@ -27,9 +27,10 @@
                         response.sendRedirect("./Extra1.jsp");
                     }
                 }
-                if(preciomenor!=null && preciomayor!=null)
-                if (Float.valueOf(preciomenor) > Float.valueOf(preciomayor)) {
-                    response.sendRedirect("./Extra3.jsp");
+                if (preciomenor != null && preciomayor != null) {
+                    if (Float.valueOf(preciomenor) > Float.valueOf(preciomayor)) {
+                        response.sendRedirect("./Extra3.jsp");
+                    }
                 }
 
                 String query = "";
@@ -64,20 +65,50 @@
                     //autortotal(Autor)
                     query = "autortotal(" + "\'" + autor.replace("'", "\\'") + "'," + preciomenor + "," + preciomayor + ")";
                     System.out.print(query);
+                } else if (opcion.equals("9")) {
+                    query = "";
                 }
 
                 ArrayList<book> consulta = pl.ConsultarProlog(query);
                 System.out.print(consulta.size());
+
+                double total = 0.0;
+                double usar = 0.0;
                 for (book actual : consulta) {
+                    double mas = Double.valueOf(actual.getPrecio());
+
+                    if (opcion.equals("1")) {
+                        usar = extra;
+                    } else if (opcion.equals("2")) {
+                        usar = sueldo;
+                    } else if (opcion.equals("3")) {
+                        usar = sueldo;
+                    } else if (opcion.equals("4")) {
+                        usar = sueldo;
+                    } else {
+                        usar = sueldo;
+                    }
+
+                    if (total + mas > usar) {
+
+                    } else {
+                        total = total + mas;
+                    }
+
                     //System.out.print(actual.GetBook());
 %>
 
 
             <div class="list-group-item">
-                <%=actual.GetBook()%>  
+                <%=actual.GetBook()%>
+
 
             </div>
             <% }%>
+            <div class="">
+                <span class="h1 text-primary"> El total es: <%=total%></span> 
+
+            </div>
         </div>
     </div>
 </div>

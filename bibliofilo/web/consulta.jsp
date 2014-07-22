@@ -17,7 +17,7 @@
                 <div class="form-group">
                     <label for="sueldo" class="col-lg-2 control-label">Sueldo:</label>
                     <div class="col-lg-2">
-                        <input type="number" class="form-control" id="sueldo" name="sueldo" placeholder="EX: 2000.00  " required>
+                        <input type="number" class="form-control" id="sueldo" name="sueldo" value="<%=session.getAttribute("sueldo") %>" required>
                         <button class="btn btn-default"type="reset">Limpiar</button>
                     </div>
                 </div>
@@ -39,6 +39,7 @@
                                     <option>Categoria, rango de estrellas</option>
                                     <option>Comming Soon</option>
                                     <option>Total Autor</option>
+                                    <option>Consulta Profe</option>
 
                                 </select>
                                 <br>                            

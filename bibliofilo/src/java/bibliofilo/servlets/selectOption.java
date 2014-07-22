@@ -36,7 +36,12 @@ public class selectOption extends HttpServlet {
             response.sendRedirect("./Extra2.jsp");
         } else if (select.equals("Total Autor")) {
             response.sendRedirect("./Extra3.jsp");
-        }
+         }else if (select.equals("Consulta Profe")){
+             response.sendRedirect("./Extra4.jsp");
+         }
+        
+        
+        
 
     }
 
