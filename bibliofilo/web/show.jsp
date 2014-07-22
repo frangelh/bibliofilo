@@ -36,7 +36,7 @@
                 String query = "";
                 if (opcion.equals("1")) {
                     //findbookfecha(Sueldo,Dias)
-                    query = "findbookfecha(" + extra + ",7)";
+                    query = "findbookfecha(" + extra + ",14)";
                     System.out.print(query);
                 } else if (opcion.equals("2")) {
                     query = "sueldo10pociento(" + (extra + (sueldo * 0.1)) + ",\'" + categoria.replace("'", "\\'") + "\')";
@@ -74,6 +74,8 @@
 
                 double total = 0.0;
                 double usar = 0.0;
+                int n = 1 + (int) (Math.random() * 10);
+
                 for (book actual : consulta) {
                     double mas = Double.valueOf(actual.getPrecio());
 
@@ -96,7 +98,7 @@
                     }
 
                     //System.out.print(actual.GetBook());
-%>
+            %>
 
 
             <div class="list-group-item">
